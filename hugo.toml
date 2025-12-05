@@ -1,4 +1,4 @@
-baseURL = 'https://minho-kwon.github.io/resume/'
+baseURL = 'https://KwonMinHo458.github.io/resume/'
 languageCode = 'ko-kr'
 title = '권민호 | Backend & Blockchain Developer'
 theme = 'minimal'

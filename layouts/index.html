@@ -1,0 +1,329 @@
+{{ define "main" }}
+<!-- Header -->
+<header class="header">
+  <img src="{{ "images/profile.png" | relURL }}" alt="프로필 사진" class="profile-photo">
+  <div class="header-info">
+    <h1>{{ .Site.Params.name }}</h1>
+    <p class="subtitle">{{ .Site.Params.role }}</p>
+    <p class="meta">{{ .Site.Params.experience }} | {{ .Site.Params.company }}</p>
+    <p class="meta">직책: {{ .Site.Params.position }}</p>
+  </div>
+</header>
+
+<!-- About -->
+<section class="section about">
+  <h2>소개</h2>
+  <p>백엔드 개발 3년 차 개발자입니다. 울산항만공사 항만시설관리시스템에서 PM으로서 기획부터 배포까지 전 과정을 총괄했으며, 현재 Port-i 해운항만물류 플랫폼 팀장을 맡아 진행 중입니다. Java, Go, Node.js, Python 등 다양한 백엔드 언어를 프로젝트에 맞게 활용하며, WebRTC 기반 실시간 화상 시스템 개발 경험도 보유하고 있습니다. Hyperledger Fabric 기반 엔터프라이즈 블록체인 개발과 DID(분산신원증명) 솔루션 기획 경험이 있으며, W3C DID Method Registry에 did:m2m을 등록했습니다. 기술적 문제 해결에 강점이 있으며, Heap Memory 분석 및 성능 최적화 등 운영 이슈를 다수 해결한 경험이 있습니다.</p>
+  <div class="strength-weakness">
+    <p><strong>강점</strong>: {{ .Site.Params.strength }}</p>
+    <p style="margin-top: 12px;"><strong>보완점</strong>: {{ .Site.Params.weakness }}</p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section">
+  <h2>기술 스택</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h4>주력</h4>
+      <p>Java 8 (현재 메인), Node.js, Golang (블록체인 프로젝트)</p>
+    </div>
+    <div class="skill-category">
+      <h4>블록체인</h4>
+      <p>Hyperledger Fabric, DID (Indy), Polygon, ERC-1400, Layer2</p>
+    </div>
+    <div class="skill-category">
+      <h4>DevOps</h4>
+      <p>Docker, Kubernetes, Nginx</p>
+    </div>
+    <div class="skill-category">
+      <h4>Database</h4>
+      <p>MariaDB, Tibero, PostgreSQL</p>
+    </div>
+    <div class="skill-category">
+      <h4>경험</h4>
+      <p>Python (FastAPI), React, WebRTC, Redis, Elasticsearch, Ansible, Terraform</p>
+    </div>
+  </div>
+</section>
+
+<!-- Main Projects -->
+<section class="section">
+  <h2>주요 프로젝트</h2>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>지도기반 항만시설관리시스템</h3>
+      <span class="project-meta">2024~2025 | 울산항만공사(UPA)</span>
+    </div>
+    <span class="project-role">실무 책임 (PM) / 백엔드 개발</span>
+    <ul>
+      <li><strong>프로젝트 총괄</strong>: 기획 → 설계 → 개발 → 배포 전 과정 리드</li>
+      <li>4개 서비스 개발 (중규모): 항만시설관리, 통합포털, 관리자 대시보드, 지도관리</li>
+      <li>항만시설관리/통합포털/관리자 대시보드 백엔드 개발 담당</li>
+      <li>RFP 요구사항 분석 및 시스템 아키텍처 설계</li>
+      <li>울산항만공사 ERP 시스템 및 포트미스 고지 연계</li>
+      <li>외부연계 인터페이스 설계 및 개발</li>
+    </ul>
+    <div class="tech-issue">
+      <strong>기술 이슈:</strong> 16,627건 업체 데이터 조회 시 JSON 직렬화로 Heap Memory Overflow → Heap dump 분석 후 API 응답 최적화 및 톰캣 Heap 증설
+    </div>
+    <p class="project-tech">Tech: Java, Tibero7</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>Port-i 해운항만물류 플랫폼 (2차년도)</h3>
+      <span class="project-meta">2025~현재 | 부산항만공사</span>
+    </div>
+    <span class="project-role">프로젝트 총괄 (PM) / 백엔드 개발</span>
+    <ul>
+      <li><strong>프로젝트 총괄</strong>: 개발 일정 관리 및 팀 리드</li>
+      <li>Port-i 서비스 백엔드 개발</li>
+    </ul>
+    <p class="project-tech">Tech: Java, Docker</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>Port-i 해운항만물류 플랫폼 (1차년도)</h3>
+      <span class="project-meta">2024 | 부산테크노파크, 부산항만공사</span>
+    </div>
+    <span class="project-role">백엔드 개발</span>
+    <ul>
+      <li>터미널 에이전트 서버 개발 (Golang)</li>
+      <li>3D 시뮬레이션 미들웨어 개발 (Redis 캐시 레이어)</li>
+      <li>VBS 데이터 전처리 로직 개발</li>
+      <li>비정합 데이터 분석 및 해소</li>
+      <li>TTA 공인인증 테스트 지원, 설계 감리 문서 작성</li>
+    </ul>
+    <div class="tech-issue">
+      <strong>기술 이슈:</strong> JPA Hibernate 1차 캐시 Heap Memory 누수 분석/해결, 고루틴 동시성 버그 수정
+    </div>
+    <p class="project-tech">Tech: Golang, Redis, Docker</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>화상 어드바이저(WebRTC) 플랫폼 - 2차년도</h3>
+      <span class="project-meta">2023~2024 | ETRI, 제윤메디컬</span>
+    </div>
+    <span class="project-role">백엔드 개발 (WebRTC SFU 서버)</span>
+    <ul>
+      <li>MediaSoup 기반 SFU 서버 설계/개발 (N:1 화상 면담 지원)</li>
+      <li>Media Server API 개발 (녹화, 변환, 업로드, FFmpeg)</li>
+      <li>SFU 서버 최적화 및 로그 인프라 구축 (Graylog/Elasticsearch)</li>
+      <li>폐쇄망 환경 배포 및 TURN 서버 구축 (UDP 포트 범위 설정)</li>
+    </ul>
+    <div class="tech-issue">
+      <strong>기술 이슈:</strong> SFU 서버 pause/resume 브로드캐스팅 미전달 버그 수정, Leave 로직 Exception 에러 수정
+    </div>
+    <p class="project-tech">Tech: Node.js, MediaSoup, WebRTC, FFmpeg, Docker, Nginx</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>화상 어드바이저(WebRTC) 플랫폼 - 1차년도</h3>
+      <span class="project-meta">2022 | ETRI, 제윤메디컬</span>
+    </div>
+    <span class="project-role">풀스택 개발 (React + Backend)</span>
+    <ul>
+      <li>WebRTC 기반 실시간 화상 상담 WAS 개발 (React)</li>
+      <li>차트/패널 UI 개발 및 제윤메디컬 API 연동</li>
+      <li>브라우저 호환성 QA 테스트 (PC/모바일 10개 기종)</li>
+      <li>Media API 서버 개발 및 Docker 컨테이너화</li>
+    </ul>
+    <div class="tech-issue">
+      <strong>기술 이슈:</strong> HTTP→HTTPS 마이그레이션 (브라우저 미디어 디바이스 접근 불가 해결), 레코딩 오디오 품질/마이크 크래시 수정
+    </div>
+    <p class="project-tech">Tech: React, Node.js, WebRTC, Docker, Nginx, TLS</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>신재생에너지 STO 플랫폼</h3>
+      <span class="project-meta">2023 | KISA</span>
+    </div>
+    <span class="project-role">블록체인 네트워크 구축 / 스마트 컨트랙트</span>
+    <ul>
+      <li>ERC-1400 기반 증권형 토큰 체인코드 개발</li>
+      <li>태양광 발전소/투자이력/감정평가/배당금 관련 5종 스마트 컨트랙트 개발</li>
+      <li>Ansible 기반 Hyperledger Fabric 2.4 자동 구축 도구 개발</li>
+      <li><strong>TTA 블록체인 서비스 신뢰성 검증 통과</strong> (약 10가지 STO 항목)</li>
+      <li>KISA 면담 조사 대응 및 산출물 관리</li>
+    </ul>
+    <p class="project-tech">Tech: Hyperledger Fabric 2.4, Golang, Ansible, ERC-1400</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>ACCIO DID (분산신원증명) 솔루션</h3>
+      <span class="project-meta">2024 | 자사</span>
+    </div>
+    <span class="project-role">기획 담당 / 서브 개발</span>
+    <ul>
+      <li><strong>W3C DID Method Registry 등록 (did:m2m)</strong></li>
+      <li>Hyperledger Indy 기반 DID 솔루션 기획 및 설계</li>
+      <li>VC(Verifiable Credential) 발급 / VP(Verifiable Presentation) 검증 API 개발</li>
+      <li>Public API 서버 개발 지원</li>
+      <li>DIDComm 기반 Secure Connection 구현 지원</li>
+    </ul>
+    <p class="project-tech">Tech: Hyperledger Indy, Python, DIDComm, W3C DID/VC</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>ACCIO BaaS (Blockchain-as-a-Service)</h3>
+      <span class="project-meta">2023~2024 | 자사</span>
+    </div>
+    <span class="project-role">GS 인증 담당 / 기술 지원</span>
+    <ul>
+      <li><strong>TTA GS 인증 획득</strong> - 시험 총괄 (시험 합의서, 제품 설명서, 사용자 매뉴얼 작성)</li>
+      <li>체인코드 API 서버 개발 (Golang)</li>
+      <li>온프레미스 기반 ACCIO 구축 교육 및 문서화</li>
+      <li>멀티 클라우드 네트워크 기능 테스트 및 버그 리포팅</li>
+    </ul>
+    <p class="project-tech">Tech: Hyperledger Fabric, Golang, Docker, Kubernetes</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>SAC UI Dashboard (창원 LG전자)</h3>
+      <span class="project-meta">2024 | 창원 LG전자</span>
+    </div>
+    <span class="project-role">인프라 담당 / 백엔드 개발</span>
+    <ul>
+      <li>ELK Stack 기반 Data-Lake 서버 아키텍처 설계 및 개발</li>
+      <li>TMS/ThinQ 데이터 정형화 모듈 개발 (Golang)</li>
+      <li>WatchDog/Coordinator 개발 (파일 시스템 모니터링)</li>
+      <li>대용량 파일 비동기 전처리 로직 구현</li>
+      <li>Elasticsearch 연계 예측절감율 API 개발</li>
+    </ul>
+    <div class="tech-issue">
+      <strong>기술 이슈:</strong> Logstash Heap Memory Overflow - 대용량 로그 처리 시 JVM Heap 설정 튜닝
+    </div>
+    <p class="project-tech">Tech: Golang, Elasticsearch, Docker</p>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>저사양 블록체인 연구 개발</h3>
+      <span class="project-meta">2022~2024 | IITP</span>
+    </div>
+    <span class="project-role">연구 개발</span>
+    <ul>
+      <li>라즈베리파이 클러스터 환경에서 Polygon Edge TPS 테스트</li>
+      <li>Polygon zkEVM 로컬 구축 및 성능 측정 (5~20 TPS)</li>
+      <li>zkSync 로컬 구축 테스트</li>
+      <li>저사양 블록체인 관리 서버 개발 (노드 관리, 블록 조회 등)</li>
+      <li>특허 가출원 문서 작성, 소프트웨어 등록</li>
+    </ul>
+    <p class="project-tech">Tech: Polygon, zkEVM, zkSync, Raspberry Pi, Python</p>
+  </div>
+</section>
+
+<!-- Consulting & Reports -->
+<section class="section">
+  <h2>컨설팅 및 보고서</h2>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>블록체인 컨설팅 용역</h3>
+      <span class="project-meta">2022~2023 | 부산테크노파크</span>
+    </div>
+    <span class="project-role">기술 컨설팅 / 보고서 작성</span>
+    <ul>
+      <li>5개 업체 대상 블록체인 기술 컨설팅 수행 (3차 컨설팅)</li>
+      <li>컨설팅 완료보고서 작성 (총 82페이지)</li>
+      <li>업체별 블록체인 도입 방안 제시</li>
+      <li>대상: 에이치엔핀코어, 코잼엔에프티, 씨엘엑스엠, 마이스타픽, 프롬서울</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>블록체인 기반 신원확인 수단 동향조사</h3>
+      <span class="project-meta">2025 | KISA</span>
+    </div>
+    <span class="project-role">동향조사 및 보고서 작성</span>
+    <ul>
+      <li>블록체인 기반 신원확인(DID) 기술 동향 조사</li>
+      <li>국내외 DID 표준 및 서비스 현황 분석</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <h3>해양위성정보 기반 스마트해양 플랫폼</h3>
+      <span class="project-meta">2024~2025 | KIAT</span>
+    </div>
+    <span class="project-role">블록체인 연계 / 보고서 작성</span>
+    <ul>
+      <li>지역혁신클러스터 R&D 참여</li>
+      <li>블록체인 연계 모듈 개발</li>
+      <li>연차보고서 작성</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Other Activities -->
+<section class="section">
+  <h2>기타 활동</h2>
+  <div class="activities-grid">
+    <div class="activity-category">
+      <h4>인프라 관리</h4>
+      <ul>
+        <li>사내 서버랙 관리 및 전원 이중화</li>
+        <li>Docker/Portainer 기반 서비스 배포</li>
+        <li>GitLab Runner CI/CD 파이프라인 구축</li>
+      </ul>
+    </div>
+    <div class="activity-category">
+      <h4>기술 세미나 발표</h4>
+      <ul>
+        <li>Terraform/HCL 팀 세미나</li>
+        <li>Ansible 팀 세미나</li>
+        <li>NestJS vs Gin 프레임워크 비교</li>
+        <li>GunDB 세미나</li>
+      </ul>
+    </div>
+    <div class="activity-category">
+      <h4>컨퍼런스 참석</h4>
+      <ul>
+        <li>UDC 2022 (업비트 개발자 컨퍼런스)</li>
+        <li>NHN Forward</li>
+        <li>람다256 STO Summit</li>
+      </ul>
+    </div>
+    <div class="activity-category">
+      <h4>교육 및 행사</h4>
+      <ul>
+        <li>블록체인 테스트베드 교육 자료 작성</li>
+        <li>b-space 인력양성 교육 참여</li>
+        <li>블록체인 진흥주간 부스 운영</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+  <h2>자격/인증</h2>
+  <ul class="cert-list">
+    <li><strong>CKA</strong> (Certified Kubernetes Administrator) - 2026.03 만료 예정</li>
+  </ul>
+</section>
+
+<!-- Education -->
+<section class="section">
+  <h2>학력</h2>
+  <div class="education-item">
+    <p><strong>울산대학교 대학원</strong> 전기전자컴퓨터공학부 (합의알고리즘 및 분산시스템 전공)</p>
+  </div>
+  <div class="education-item">
+    <p><strong>울산대학교</strong> IT 복수전공</p>
+  </div>
+</section>
+
+<p class="source-note">본 이력서는 2022년 7월 ~ 2025년 12월 주간업무보고 132건 및 근태기록 1,386건을 기반으로 작성되었습니다.</p>
+{{ end }}
